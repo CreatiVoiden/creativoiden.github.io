@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+
+        /* 顶部时间样式 */
+        .time-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #409eff;
+            color: white;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* 筛选区域样式 */
+        .filter-area {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+
+        .filter-area label {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .filter-area select, .filter-area button {
+            padding: 8px 12px;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .history-btn {
+            background-color: #67c23a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .history-btn:hover {
+            background-color: #5cb85c;
+        }
+
+        /* 模式提示样式（新增） */
+        .mode-tip {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .normal-mode {
+            background-color: #e1f5fe;
+            color: #01579b;
+        }
+
+        .history-mode {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        /* 表格样式 */
+        .homework-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+
+        .homework-table th, .homework-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e4e7ed;
+        }
+
+        .homework-table th {
+            background-color: #eef2f7;
+            font-weight: 600;
+        }
+
+        .homework-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* 输入框样式 */
+        .homework-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+            resize: none;
+            min-height: 60px;
+        }
+
+        .time-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+        }
+
+        /* 添加行按钮 */
+        .add-row-btn {
+            margin: 15px 0;
+            padding: 10px 20px;
+            background-color: #409eff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .add-row-btn:hover {
+            background-color: #337ecc;
+        }
+
+        /* 保存按钮样式 */
+        .save-btn {
+            float: right;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #f56c6c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .save-btn:disabled {
+            background-color: #909399;
+            cursor: not-allowed;
+        }
+
+        .save-btn:hover:not(:disabled) {
+            background-color: #e65959;
+        }
+
+        /* 历史日期选择弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .date-input {
+            padding: 8px;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+        }
+
+        .modal-btn {
+            padding: 8px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .confirm-btn {
+            background-color: #409eff;
+            color: white;
+        }
+
+        .cancel-btn {
+            background-color: #909399;
+            color: white;
+        }
+
+        /* 密码弹窗样式（新增） */
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .password-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+        }
+
+        .password-content h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .password-input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部时间显示 -->
+    <div class="time-header" id="current-time"></div>
+
+    <!-- 筛选区域 -->
+    <div class="filter-area">
+        <label for="subject-filter">筛选学科：</label>
+        <select id="subject-filter">
+            <option value="all">全部学科</option>
+            <option value="语文">语文</option>
+            <option value="数学">数学</option>
+            <option value="英语">英语</option>
+            <option value="物理">物理</option>
+            <option value="化学">化学</option>
+            <option value="生物">生物</option>
+            <option value="历史">历史</option>
+            <option value="政治">政治</option>
+            <option value="地理">地理</option>
+        </select>
+        <button class="history-btn" id="history-btn">查看历史作业</button>
+        <!-- 新增模式提示 -->
+        <span class="mode-tip normal-mode" id="mode-tip">当前模式：正常（可保存）</span>
+    </div>
+
+    <!-- 作业表格 -->
+    <table class="homework-table" id="homework-table">
+        <thead>
+            <tr>
+                <th>学科</th>
+                <th>作业内容</th>
+                <th>交作业时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 初始行 -->
+            <tr data-subject="语文">
+                <td>语文</td>
+                <td><textarea class="homework-input" placeholder="请输入作业内容"></textarea></td>
+                <td><input type="text" class="time-input" placeholder="例如：2026-03-01 18:00"></td>
+            </tr>
+            <tr data-subject="数学">
+                <td>数学</td>
+                <td><textarea class="homework-input" placeholder="请输入作业内容"></textarea></td>
+                <td><input type="text" class="time-input" placeholder="例如：2026-03-01 18:00"></td>
+            </tr>
+            <tr data-subject="英语">
+                <td>英语</td>
+                <td><textarea class="homework-input" placeholder="请输入作业内容"></textarea></td>
+                <td><input type="text" class="time-input" placeholder="例如：2026-03-01 18:00"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 添加行按钮 -->
+    <button class="add-row-btn" id="add-row-btn">添加作业行</button>
+
+    <!-- 保存按钮 -->
+    <button class="save-btn" id="save-btn">保存作业</button>
+
+    <!-- 历史日期选择弹窗 -->
+    <div class="modal" id="history-modal">
+        <div class="modal-content">
+            <h3>选择要查看的日期</h3>
+            <input type="date" class="date-input" id="history-date">
+            <div>
+                <button class="modal-btn confirm-btn" id="confirm-history">确认</button>
+                <button class="modal-btn cancel-btn" id="cancel-history">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增密码验证弹窗 -->
+    <div class="password-modal" id="password-modal">
+        <div class="password-content">
+            <h3>请输入保存密码</h3>
+            <input type="password" class="password-input" id="password-input" placeholder="输入固定保存密码">
+            <div>
+                <button class="modal-btn confirm-btn" id="confirm-password">确认</button>
+                <button class="modal-btn cancel-btn" id="cancel-password">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 学科列表
+        const subjects = ["语文", "数学", "英语", "物理", "化学", "生物", "历史", "政治", "地理"];
+        // 当前日期
+        let currentDate = new Date();
+        let currentDateStr = getDateStr(currentDate);
+        // 新增：标记是否为历史模式（默认否）
+        let isHistoryMode = false;
+
+        // 初始化页面
+        window.onload = function() {
+            // 更新时间显示
+            updateTimeDisplay();
+            setInterval(updateTimeDisplay, 1000);
+
+            // 检查是否到了新的一天，自动更新
+            checkDailyUpdate();
+            setInterval(checkDailyUpdate, 3600000); // 每小时检查一次
+
+            // 绑定事件
+            bindEvents();
+
+            // 加载当天的作业数据
+            loadHomeworkData(currentDateStr);
+        };
+
+        // 更新顶部时间显示
+        function updateTimeDisplay() {
+            const now = new Date();
+            const timeStr = now.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                weekday: 'long'
+            });
+            document.getElementById('current-time').textContent = timeStr;
+        }
+
+        // 检查是否需要每日更新
+        function checkDailyUpdate() {
+            const newDateStr = getDateStr(new Date());
+            if (newDateStr !== currentDateStr) {
+                currentDateStr = newDateStr;
+                // 切换回正常模式
+                isHistoryMode = false;
+                updateModeTip();
+                // 清空当前表格（保留表头），加载新日期的作业
+                clearTable();
+                loadHomeworkData(currentDateStr);
+            }
+        }
+
+        // 获取日期字符串 YYYYMMDD
+        function getDateStr(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}${month}${day}`;
+        }
+
+        // 绑定所有事件
+        function bindEvents() {
+            // 学科筛选
+            document.getElementById('subject-filter').addEventListener('change', filterSubject);
+            
+            // 添加作业行
+            document.getElementById('add-row-btn').addEventListener('click', addHomeworkRow);
+            
+            // 保存作业（修改：点击先弹密码框）
+            document.getElementById('save-btn').addEventListener('click', showPasswordModal);
+            
+            // 查看历史作业按钮
+            document.getElementById('history-btn').addEventListener('click', showHistoryModal);
+            
+            // 取消历史作业查看
+            document.getElementById('cancel-history').addEventListener('click', hideHistoryModal);
+            
+            // 确认查看历史作业
+            document.getElementById('confirm-history').addEventListener('click', loadHistoryHomework);
+            
+            // 密码弹窗事件（新增）
+            document.getElementById('confirm-password').addEventListener('click', verifyPassword);
+            document.getElementById('cancel-password').addEventListener('click', hidePasswordModal);
+        }
+
+        // 筛选学科
+        function filterSubject() {
+            const filterValue = document.getElementById('subject-filter').value;
+            const rows = document.querySelectorAll('#homework-table tbody tr');
+            
+            rows.forEach(row => {
+                const subject = row.dataset.subject;
+                if (filterValue === 'all' || subject === filterValue) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // 添加作业行
+        function addHomeworkRow() {
+            const tbody = document.querySelector('#homework-table tbody');
+            const row = document.createElement('tr');
+            
+            // 创建学科选择下拉框
+            const subjectCell = document.createElement('td');
+            const subjectSelect = document.createElement('select');
+            subjectSelect.className = 'subject-select';
+            subjects.forEach(subject => {
+                const option = document.createElement('option');
+                option.value = subject;
+                option.textContent = subject;
+                subjectSelect.appendChild(option);
+            });
+            subjectCell.appendChild(subjectSelect);
+            
+            // 作业内容输入框
+            const contentCell = document.createElement('td');
+            const contentInput = document.createElement('textarea');
+            contentInput.className = 'homework-input';
+            contentInput.placeholder = '请输入作业内容';
+            contentCell.appendChild(contentInput);
+            
+            // 交作业时间输入框
+            const timeCell = document.createElement('td');
+            const timeInput = document.createElement('input');
+            timeInput.type = 'text';
+            timeInput.className = 'time-input';
+            timeInput.placeholder = '例如：2026-03-01 18:00';
+            timeCell.appendChild(timeInput);
+            
+            // 组装行
+            row.appendChild(subjectCell);
+            row.appendChild(contentCell);
+            row.appendChild(timeCell);
+            tbody.appendChild(row);
+            
+            // 更新行的data-subject属性
+            subjectSelect.addEventListener('change', function() {
+                row.dataset.subject = this.value;
+            });
+            row.dataset.subject = subjectSelect.value;
+        }
+
+        // 新增：显示密码验证弹窗
+        function showPasswordModal() {
+            // 历史模式下直接提示，不弹密码框
+            if (isHistoryMode) {
+                alert('当前处于查看历史作业模式，禁止保存操作！');
+                return;
+            }
+            document.getElementById('password-modal').style.display = 'flex';
+            // 清空密码输入框
+            document.getElementById('password-input').value = '';
+            // 聚焦输入框
+            document.getElementById('password-input').focus();
+        }
+
+        // 新增：隐藏密码验证弹窗
+        function hidePasswordModal() {
+            document.getElementById('password-modal').style.display = 'none';
+        }
+
+        // 新增：验证密码（核心修复）
+        async function verifyPassword() {
+            const password = document.getElementById('password-input').value.trim();
+            if (!password) {
+                alert('请输入保存密码！');
+                return;
+            }
+
+            try {
+                // 修复：确保请求体格式正确，增加完整的请求头配置
+                const response = await fetch('/api/verify-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8', // 明确指定编码
+                        'Accept': 'application/json'
+                    },
+                    // 修复：使用JSON.stringify安全序列化，处理特殊字符
+                    body: JSON.stringify({ 
+                        password: password.replace(/\\/g, '\\\\').replace(/"/g, '\\"') 
+                    }),
+                    mode: 'cors', // 兼容跨域（本地运行也需要）
+                    cache: 'no-cache',
+                    credentials: 'same-origin'
+                });
+
+                // 先检查响应状态
+                if (!response.ok) {
+                    throw new Error(`HTTP错误，状态码：${response.status}`);
+                }
+
+                const result = await response.json();
+                if (result.success) {
+                    // 密码正确，隐藏密码框并执行保存
+                    hidePasswordModal();
+                    doSaveHomework();
+                } else {
+                    alert(result.message);
+                    // 清空输入框并聚焦
+                    document.getElementById('password-input').value = '';
+                    document.getElementById('password-input').focus();
+                }
+            } catch (error) {
+                // 更详细的错误提示
+                alert(`密码验证出错：${error.message}\n请检查：1.后端服务是否启动 2.输入的密码是否有特殊字符`);
+                hidePasswordModal();
+                console.error('密码验证错误详情：', error); // 控制台输出详细错误
+            }
+        }
+
+        // 执行保存作业（原saveHomework函数重命名，同步修复请求配置）
+        async function doSaveHomework() {
+            try {
+                const homeworkData = [];
+                const rows = document.querySelectorAll('#homework-table tbody tr');
+                
+                rows.forEach(row => {
+                    // 获取学科
+                    let subject;
+                    const subjectSelect = row.querySelector('.subject-select');
+                    if (subjectSelect) {
+                        subject = subjectSelect.value;
+                    } else {
+                        subject = row.dataset.subject;
+                    }
+                    
+                    // 获取作业内容和交作业时间
+                    const content = row.querySelector('.homework-input').value.trim();
+                    const submitTime = row.querySelector('.time-input').value.trim();
+                    
+                    if (content) { // 只保存有内容的作业
+                        homeworkData.push({
+                            subject: subject,
+                            content: content,
+                            submitTime: submitTime
+                        });
+                    }
+                });
+
+                // 调用后端保存接口（新增isHistoryMode参数，修复请求配置）
+                const response = await fetch('/api/save-homework', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        dateStr: currentDateStr,
+                        homeworkData: homeworkData,
+                        isHistoryMode: isHistoryMode // 传递模式状态
+                    }),
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP错误，状态码：${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert(`作业保存成功！\n文件路径：${result.filePath}`);
+                } else {
+                    alert(`保存失败：${result.message}`);
+                }
+            } catch (error) {
+                alert(`保存出错：${error.message}\n请确保后端服务已启动`);
+                console.error('保存作业错误详情：', error);
+            }
+        }
+
+        // 加载作业数据（调用后端API）
+        async function loadHomeworkData(dateStr) {
+            try {
+                // 调用后端读取接口
+                const response = await fetch(`/api/load-homework?dateStr=${dateStr}`, {
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP错误，状态码：${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                // 清空表格
+                clearTable();
+                
+                if (result.success && result.data.length > 0) {
+                    // 加载数据到表格
+                    const tbody = document.querySelector('#homework-table tbody');
+                    tbody.innerHTML = '';
+                    
+                    result.data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.dataset.subject = item.subject;
+                        
+                        // 学科列
+                        const subjectCell = document.createElement('td');
+                        subjectCell.textContent = item.subject;
+                        
+                        // 作业内容列
+                        const contentCell = document.createElement('td');
+                        const contentInput = document.createElement('textarea');
+                        contentInput.className = 'homework-input';
+                        contentInput.placeholder = '请输入作业内容';
+                        contentInput.value = item.content;
+                        contentCell.appendChild(contentInput);
+                        
+                        // 交作业时间列
+                        const timeCell = document.createElement('td');
+                        const timeInput = document.createElement('input');
+                        timeInput.type = 'text';
+                        timeInput.className = 'time-input';
+                        timeInput.placeholder = '例如：2026-03-01 18:00';
+                        timeInput.value = item.submitTime;
+                        timeCell.appendChild(timeInput);
+                        
+                        row.appendChild(subjectCell);
+                        row.appendChild(contentCell);
+                        row.appendChild(timeCell);
+                        tbody.appendChild(row);
+                    });
+                    
+                    alert(`成功加载${dateStr}的作业数据`);
+                } else {
+                    alert(`${dateStr}暂无作业数据，已初始化空白表格`);
+                }
+            } catch (error) {
+                alert(`加载数据出错：${error.message}\n请确保后端服务已启动`);
+                console.error('加载作业错误详情：', error);
+                clearTable(); // 加载失败时初始化空白表格
+            }
+        }
+
+        // 清空表格内容
+        function clearTable() {
+            const tbody = document.querySelector('#homework-table tbody');
+            tbody.innerHTML = '';
+            
+            // 添加初始的三个学科行
+            ['语文', '数学', '英语'].forEach(subject => {
+                const row = document.createElement('tr');
+                row.dataset.subject = subject;
+                
+                const subjectCell = document.createElement('td');
+                subjectCell.textContent = subject;
+                
+                const contentCell = document.createElement('td');
+                const contentInput = document.createElement('textarea');
+                contentInput.className = 'homework-input';
+                contentInput.placeholder = '请输入作业内容';
+                contentCell.appendChild(contentInput);
+                
+                const timeCell = document.createElement('td');
+                const timeInput = document.createElement('input');
+                timeInput.type = 'text';
+                timeInput.className = 'time-input';
+                timeInput.placeholder = '例如：2026-03-01 18:00';
+                timeCell.appendChild(timeInput);
+                
+                row.appendChild(subjectCell);
+                row.appendChild(contentCell);
+                row.appendChild(timeCell);
+                tbody.appendChild(row);
+            });
+        }
+
+        // 显示历史作业弹窗
+        function showHistoryModal() {
+            document.getElementById('history-modal').style.display = 'flex';
+            // 设置默认日期为昨天
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            document.getElementById('history-date').value = yesterday.toISOString().split('T')[0];
+        }
+
+        // 隐藏历史作业弹窗
+        function hideHistoryModal() {
+            document.getElementById('history-modal').style.display = 'none';
+        }
+
+        // 加载历史作业（修改：标记为历史模式）
+        function loadHistoryHomework() {
+            const selectedDate = document.getElementById('history-date').value;
+            if (!selectedDate) {
+                alert('请选择日期！');
+                return;
+            }
+            
+            // 转换为YYYYMMDD格式
+            const [year, month, day] = selectedDate.split('-');
+            const dateStr = `${year}${month}${day}`;
+            
+            // 标记为历史模式
+            isHistoryMode = true;
+            // 更新模式提示和保存按钮状态
+            updateModeTip();
+            
+            // 加载对应日期的作业
+            loadHomeworkData(dateStr);
+            
+            // 隐藏弹窗
+            hideHistoryModal();
+        }
+
+        // 新增：更新模式提示和保存按钮状态
+        function updateModeTip() {
+            const modeTip = document.getElementById('mode-tip');
+            const saveBtn = document.getElementById('save-btn');
+            
+            if (isHistoryMode) {
+                modeTip.className = 'mode-tip history-mode';
+                modeTip.textContent = '当前模式：历史作业（禁止保存）';
+                saveBtn.disabled = true; // 禁用保存按钮
+            } else {
+                modeTip.className = 'mode-tip normal-mode';
+                modeTip.textContent = '当前模式：正常（可保存）';
+                saveBtn.disabled = false; // 启用保存按钮
+            }
+        }
+    </script>
+</body>
+</html>
