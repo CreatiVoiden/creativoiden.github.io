@@ -104,7 +104,7 @@ app.get('/api/load-homework', (req, res) => {
 
 // 启动服务器
 app.listen(PORT, () => {
-    console.log(`服务器运行在: http://localhost:${PORT}`);
+    console.log(`服务器运行在: http://creativoiden.github.io:${PORT}`);
     console.log(`作业数据将保存在: ${DATA_DIR}`);
     console.log(`保存作业的固定密码: ${SAVE_PASSWORD}`);
 });
