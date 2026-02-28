@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>星海高中（沈浒路）25届16班-官网</title>
+		<base target="_blank">
+		<link rel="manifest" href="./manifest.json">
+		<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+		<link type="text/css" rel="stylesheet" href="./css/uramain.css"/>
+		<link rel="stylesheet" href="./css/main.css">
+		<meta name="viewport" content="width=device-width, initial-scale=0.7">
+		<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js"></script>
+		<script src="./js/online.js"></script>
+		<script src="./js/online2.js"></script>
+		<style>
+			#title{
+				display: flex;
+				align-items: center;
+				transition: all .15s;
+				box-shadow: none;
+				background-color: transparent;
+				color: #fff;
+				backdrop-filter: none;
+				box-shadow: none;
+			}#main{
+				display: inline-block;
+				color: #000;
+				width: 100%;
+			}#main-bg{
+				width: 100%;
+				height: 430px;
+				background-image: url(https://dl3.img.timecdn.cn/2024/01/29/background.png);
+				background-size: cover;
+				text-shadow: 0 0 15px #000;
+			}#main-bg-cover{
+				background-color: rgba(0, 0, 0, .65);
+				color: #fff;
+				width: 100vw;
+				height: 100vh;
+				display: inline-block;
+			}#main *{
+				margin: 0;
+			}#main-article{
+				display: flex;
+				margin: 0 auto;
+				margin-top:20px ;
+				width: 70%;
+				margin-bottom: 90px;
+			}#main-article-left{
+				text-align: left;
+				flex:1;
+			}#main-article-right{
+				margin-left: 15%;
+				text-align: left;
+				flex: 1;
+			}.se{
+				width: 100%;
+				display: inline-block;
+				box-shadow: -0px -0px 6px #363636;
+			}#se-more b{
+				margin-right: 10px;
+			}#end{
+				background-color: #363636;
+				width: 100%;
+				color: #fff;
+				text-align: left;
+			}#end a{
+				--main-color:#fff;
+				color: #fff;
+				margin-right: 10px;
+			}#end-href{
+				padding: 30px;
+			}#join{
+				background-color: #363636;
+				color: #fff;
+				width: 100%;
+			}#main-bg-cover-content{
+				transform: translateY(170px);
+			}button{
+				display: inline-block;
+				transition: all .3s;
+				background-color: #f1f1f1;
+				outline: none;
+				border-radius: 5px;
+				border: none;
+				font-weight: bold;
+				color: #fff;
+				width:100px;
+				height: 35px;
+			}button:hover{
+				filter: brightness(1.1);
+				cursor: pointer;
+			}button:active{
+				transform: scale(.95);
+				filter: brightness(.8);
+			}
+			#btn-article{
+				margin-top: 20px;
+				margin-right: 10px;
+				background:linear-gradient(165deg,#2ecc71,#55efc4);
+			}#btn-join{
+				margin-top: 20px;
+				background:linear-gradient(165deg,#0984e3,#74b9ff);
+			}#btn-about{
+				margin-top: 20px;
+				margin-right: 10px;
+				background:linear-gradient(165deg,#d63031,#ff7675);
+			}#title a{
+				display: inline-block;
+				color:#fff;
+				margin-left: 30px;
+				text-decoration: none;
+				transition: all .3s;
+			}#title a:hover{
+				color: rgb(255, 187, 222);
+			}#title a:active{
+				opacity: .8;
+			}#content{
+				display: inline-block;
+				background-color: #f1f1f1;
+				width: 100%;
+			}.se{
+				box-shadow: none;
+				color: #fff;
+				background-color: #000;
+			}#studio{
+				background-color:#fff;
+				color: #000;
+				display: inline-block;
+				width: 100%;
+			}#last{
+				display: inline-block;
+				text-align: left;
+				background-color:rgba(0, 0, 0, .9);
+				color: #fff;
+				display: inline-block;
+				width: 100%;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}#last a{
+				display: inline-block;
+				--main-color:#fff;
+				margin-left: 15px;
+			}#content-a{
+				display: flex;
+			}.flex-a{
+				flex: 1;
+			}.flex-b{
+				flex:2;
+			}#content{
+				display: inline-block;
+				background-color: #fff;
+				padding: 50px;
+				padding-left: 0;
+				padding-right: 0;
+			}#content p{
+				color: gray;
+			}#content h1,#content h2{
+				color: #363636;
+			}.image{
+				display: inline-block;
+				width: 70%;
+				height: 240px;
+			}.image img{
+				border-radius: 5px;
+				display: inline-block;
+				transition: all .3s;
+				width: 100%;
+				height: 100%;
+			}.image img:hover{
+				transform:scale(1.1);
+				filter: brightness(1.1);
+			}#content-b{
+				display: inline-block;
+				margin-top: 50px;
+			}#content-b .box-method{
+				display: inline-block;
+				margin-right: 20px;
+				margin-bottom: 20px;
+				width: 300px;
+				height: 430px;
+				border: 1px solid #d7d7d7;
+			}#content-b .box-method:hover{
+				box-shadow: none;
+			}#content-b .box-method img{
+				display: block;
+				width: 100%;
+				height: 190px;
+				border-radius:8px 8px 0 0 ;
+			}#content-b .box-method button{
+				display: block;
+				margin: 0 auto;
+				transform: translateY(80px);
+				top: 100px;
+				border-radius:5px ;
+				background-color: transparent;
+				border: 2px solid hotpink;
+				width: 100px;
+				color: hotpink;
+			}#content-b .box-method button:hover{
+				background-color: hotpink;
+				color: #fff;
+			}#content-b .box-method h2{
+				margin-top: 30px;
+			}#content-b .box-method p{
+				display: inline-block;
+				width: 80%;
+				text-align: center;
+			}#help{
+				display: inline-block;
+				width: 100%;
+				height: 30px;
+				background-color: rgb(255, 255, 94);
+				color: #ff6200;
+				font-weight: bold;
+				font-size: 16px;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+!(function(c,b,d,a){c[a]||(c[a]={});c[a].config=
+  {
+    pid:"i1ra11k304@507ce0f3144439b",
+    appType:"web",
+    imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",
+    sendResource:true,
+    enableLinkTrace:true,
+    behavior:true
+  };
+with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+})(window,document,"https://sdk.rum.aliyuncs.com/v1/bl.js","__bl");
+</script>
+		<nav id="title">
+			<!--<img onclick="location.href = ''" src="https://dl2.img.timecdn.cn/2024/01/29/sv.jpg" alt="icon"  height="50px" draggable="false" style="margin-left: 20px;cursor: pointer;"/>-->
+			<a href="#" draggable="false">HERF1</a>
+			<a href="#" draggable="false">HERF2</a>
+		        <a href="tw-1.lcf.icu:35369"draggable="false">HERF3</a>
+          </nav>
+		<div id="main">
+			<div id="main-bg">
+				<div id="main-bg-cover">
+					<div id="main-bg-cover-content">
+						<h1 style="color: #fff;" class="animate__animated animate__bounceInDown">星海实验高级中学（沈浒路）26届16班</h1>
+						<h3 class="animate__animated animate__fadeInLeft animate__delay-1s">---</h3>
+						<div class="animate__animated animate__fadeIn animate__delay-3s">
+							<button id="btn-join" onclick="location.href = 'javascript:window.alert('这个暂时没啥用');'">了解更多></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<marquee id="help" style="margin: 0;" scrollamount="11"><span style="margin-top: 3px;margin-bottom: 0;display: inline-block;">Welcom</span></marquee>
+			<div id="content" style="margin-top: -5px;">
+				<div id="content-a" >
+					<div class="flex-a animate__animated animate__fadeInLeft" style="margin-left: 100px;text-align: left;">
+						<h1>16班欢迎您</h1>
+						<p>这是一个__________的班级</p>
+					</div>
+					<div class="flex-b animate__animated animate__flipInX">
+						<div class="image">
+							<img src="img/Windows_X.jpg" alt="img" draggable="false">
+						</div>
+					</div>
+				</div>
+				<div id="content-b" class="animate__animated animate__rollIn">
+					<h1 style="margin-bottom: 20px;">等待开始</h1>
+					<!--
+					<div class="box-method">
+						<img src="https://dl2.img.timecdn.cn/2024/01/29/sv.jpg" alt="img" draggable="false">
+						<h2>MCCP服务器</h2>
+						<p>Minecraft JAVA版1.18.2版本上的服务器</p>
+						<button onclick="layer.open({title:'<div style=\'text-align:left\'><b>加群链接</b></div>',content:'<p style=\'color:#000\'>871599412</p>'})">点击加群</button>
+					</div>
+					-->
+				</div>
+			</div>
+			<div class="se">
+				<!--<img src="img/sv.png" draggable="false" alt="icon" height="60px" style="margin-top: 6px;"/>-->
+				<i style="display: inline-block;font-weight: lighter;font-size: 26px;transform: translateY(-20px);margin-left: 10px;">就到这里</i>
+			</div>
+			<div id="studio">
+				<div style="margin: 0 auto;width: 100%;">
+					<!--<img src="https://dl.img.timecdn.cn/2024/01/29/Image.jpg" alt="MCCP委员会" width="80px" height="80px"  draggable="false">-->
+					<h1 style="display: inline-block;font-weight: lighter;transform: translate(5px,-30px);margin: 0;">CLASS 16</h1>
+				</div>
+			</div>
+			<div id="last">
+				<a draggable="false" class="url" style="cursor: pointer;" onclick="layer.msg('<b>反馈功能还在开发中</b>',{anim:6,icon:5,time:700})">反馈</a>
+<p>©2025-2026  Steve  
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onscroll = function(){
+			const title = document.getElementById('title');
+ 			if(document.documentElement.scrollTop === 0){
+				title.style.backgroundColor = 'transparent';
+				title.style.color = '#fff';
+				title.style.backdropFilter = 'none';
+				title.style.boxShadow = 'none';
+			}else{
+				title.style.backgroundColor = 'rgba(0,0,0,.75)';
+				title.style.color = '#000';
+				title.style.backdropFilter = 'blur(10px)';
+				title.style.boxShadow = '1px 1px 8px #363636';
+			}
+		}
+	</script>
+
+</html>
+
+
