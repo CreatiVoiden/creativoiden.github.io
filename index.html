@@ -1,341 +1,407 @@
 <!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CREATIVOIDEN · 虚空影视</title>
+  <meta name="description" content="CreatiVoiden（虚空影视）是一支高中生影视团队，致力于提供更好的视觉效果。VoidenMedia 虚空影视计划正在进行中。">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
 
-<html lang="cn">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CREATIVOIDEN · 虚空影视">
+  <meta property="og:description" content="一支高中生影视团队，致力于提供更好的视觉效果。VoidenMedia 虚空影视计划正在进行中。">
+  <meta property="og:url" content="https://voiden.cn/">
+  <meta property="og:image" content="https://voiden.cn/images/intervoiden2.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://voiden.cn/">
 
-  <head>
+  <link rel="icon" href="images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="images/intervoiden2.png">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <meta charset="utf-8">
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
 
-    <title>CREATIVOIDEN</title>
-
-    <!-- Bootstrap -->
-
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-
-    <script>LA.init({id:"Jusm5pvfoXggzVSE",ck:"Jusm5pvfoXggzVSE"})</script>
-
-	</head>
-
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-      <a class="navbar-brand" href="#"><img style="width: 80px; height: 80px;" src=./images/intervoiden2.png ></a>
-		<h3>CreatiVoiden</h3>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav mr-auto">
-
-          <li class="nav-item active"> <a class="nav-link" href="#">主页<span class="sr-only">(current)</span></a> </li>
-
-          <li class="nav-item"> <a class="nav-link" href="#aboutus">关于我们&nbsp;</a> </li>
-
-          <li class="nav-item dropdown">
-
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 其它 </a>
-
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-              <a class="dropdown-item" href="javascript:window.alert('这个暂时没啥用');">加入我们</a> <a class="dropdown-item" href="#reply">反馈</a>
-
-              <div class="dropdown-divider"></div>
-
-              <!--<a class="dropdown-item" href="http://www.cccp-dos.mysxl.cn">CCCP-DOS</a> -->
-
-            </div>
-
-          </li>
-
-          <li class="nav-item"> <a class="nav-link" href="download.html">下载</a></li>
-
-        </ul>
-
-        <form class="form-inline my-2 my-lg-0">
-
-          <input class="form-control mr-sm-2" type="search" placeholder="装饰用的搜索框" aria-label="Search">
-
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="rickroll" >搜索</button>
-
-			<script>
-
-			   function rickroll(){
-
-				window.location.href="http://creativoiden.github.io/";	
-
-				}
-
-			</script>
-
-        </form>
-
+      <div class="nav-links" id="navLinks">
+        <a href="#top" class="is-active" data-nav="top">主页</a>
+        <a href="#aboutus" data-nav="aboutus">关于我们</a>
+        <a href="#now" data-nav="now">正在进行</a>
+        <a href="#ideas" data-nav="ideas">理念</a>
+        <a href="#reply" data-nav="reply">反馈</a>
+        <a class="nav-cta" href="download.html">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
       </div>
-
     </nav>
+  </header>
 
-    <header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
-      <div class="jumbotron">
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
 
-        <div class="container">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            CREATIVOIDEN · 虚空影视
+          </span>
 
-          <div class="row">
+          <h1>把想象，<br>投进<span class="grad-text">虚空</span>。</h1>
 
-            <div class="col-12">
+          <p class="hero-sub">一支高中生影视团队，致力于提供更好的视觉效果。我们用镜头、画面与<span class="nowrap">代码</span>，把脑海里的东西一点点<span class="nowrap">做出来</span>。</p>
 
-              <h1 class="text-center"> VoidenMedia 虚空影视  计划 &nbsp;</h1>
+          <p class="hero-status">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>VoidenMedia · 虚空影视计划</span>
+            <strong>正在进行</strong>
+          </p>
 
-              <p class="text-center"> 正在进行 </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="new/">
+              了解更多
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+            <a class="btn btn-ghost" href="download.html">下载中心</a>
+          </div>
 
-              <p>&nbsp;</p>
+          <ul class="hero-meta">
+            <li><strong>2022</strong><span>团队成立</span></li>
+            <li><strong>2 届</strong><span>国际中学生电影展<br>学生评委</span></li>
+            <li><strong>5+</strong><span>影像与开发项目</span></li>
+          </ul>
+        </div>
 
-              <p class="text-center"><a class="btn btn-primary btn-lg" href="https://creativoiden.github.io/new/" role="button" >了解更多</a> </p>
-
+        <div class="hero-visual" data-tilt-area>
+          <div class="visual-glow" aria-hidden="true"></div>
+          <div class="orb-stage" data-tilt>
+            <span class="orb-ring" aria-hidden="true"></span>
+            <span class="orb-ring orb-ring-2" aria-hidden="true"></span>
+            <div class="orb">
+              <span class="orb-grid" aria-hidden="true"></span>
+              <img src="images/intervoiden2.png" alt="CreatiVoiden 标志" width="233" height="233">
             </div>
-
+            <span class="chip chip-a">FILM <em>影像</em></span>
+            <span class="chip chip-b">VISUAL <em>视觉</em></span>
+            <span class="chip chip-c">CODE <em>代码</em></span>
           </div>
-
-		  </div>
-
+        </div>
       </div>
+    </section>
 
-    </header>
-
-    <section id="aboutus">
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-12 mb-4 mt-2 text-center">
-
-            <h2>关于我们</h2>
-
-          </div>
-
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>FILM</span><i>✦</i><span>影像</span><i>✦</i><span>VISUAL</span><i>✦</i><span>视觉</span><i>✦</i><span>CODE</span><i>✦</i><span>代码</span><i>✦</i><span>CREATIVOIDEN</span><i>✦</i>
         </div>
-
+        <div class="marquee-group">
+          <span>FILM</span><i>✦</i><span>影像</span><i>✦</i><span>VISUAL</span><i>✦</i><span>视觉</span><i>✦</i><span>CODE</span><i>✦</i><span>代码</span><i>✦</i><span>CREATIVOIDEN</span><i>✦</i>
+        </div>
       </div>
-
-      <div class="container ">
-
-        <div class="row">
-
-<!--          <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-
-            <img class="rounded-circle" alt="一字提官" style="width: 140px; height: 140px;" src="images/汪苏臣.jpg" data-holder-rendered="true">
-
-		    <h2>汪苏臣</h2>
-		 <h4>后期制作</h4>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-
-            <img class="rounded-circle" alt="AlanHocker" style="width: 140px; height: 140px;" src="images/吴桐.jpg" data-holder-rendered="true">
-
-            <h3>吴桐</h3>
-
-          </div>  
--->
-          <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-
-            <img class="rounded-circle" alt="Steve" style="width: 140px; height: 140px; text-align: center;" src="images/hd.jpg" data-holder-rendered="true">
-
-            <h1>Steve</h1>
-		  <p> 第七、八届国际中学生电影展 </p>
-		<p> <font size="1">学生评委</font> </p>
-
-          </div>
-
-        </div>
-	      <!--
-	      -->
-
-
-        <div class="row">
-
-          <div class="col-sm-12 mt-4 mb-2 text-center">
-
-            <h2>理念</h2>
-
-          </div>
-
-        </div>
-
-        <div class="row">
-
-          <div class="col-sm-6 col-lg-6">
-
-            <blockquote class="blockquote">
-
-              <p class="mb-0">我们活着不能与草木同腐，不能醉生梦死，枉度人生，要有所作为</p>
-
-              <p class="mb-0">&nbsp;</p>
-
-<small class="blockquote-footer"><em>方志敏烈士<cite title="Source Title"> &nbsp;</cite></em></small> 
-
-            </blockquote>
-
-          </div>
-
-          <div class="col-sm-6 col-lg-6">
-
-            <blockquote class="blockquote">
-
-              <p class="mb-0">为科学和技术开拓新道路的，有时并不是科学界的著名人物，而是科学界毫不知名的人物，平凡的人物，实践家，工作革新者</p>
-
-              <small class="blockquote-footer"> <cite title="Source Title">约瑟夫·维萨里奥诺维奇·斯大林</cite></small> 
-
-            </blockquote>
-
-          </div>
-
-          <div class="col-sm-6 col-lg-6">
-
-            <blockquote class="blockquote">
-
-              <p class="mb-0">计算机天生就是用来解决以前没有过的问题的</p>
-
-            <small class="blockquote-footer"><em>比尔·盖茨&nbsp;&nbsp;<cite title="Source Title"> &nbsp;</cite></em></small> </blockquote>
-
-          </div>
-
-          <div class="col-sm-6 col-lg-6">
-
-            <blockquote class="blockquote">
-
-              <p class="mb-0">如果你以为用户是白痴，那就只有白痴才用它</p>
-
-              <small class="blockquote-footer"><em>Linux之父 李纳斯·托沃兹</em><br>
-
-            </small> </blockquote>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="jumbotron">
-
-        <div class="container">
-
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-12 col-md-8 mx-auto">
-
-          <div class="jumbotron">
-
-            <div class="row text-center">
-
-              <div class="text-center col-12" id="reply">
-
-                <h2>反馈</h2>
-
-              </div>
-
-              <div class="text-center col-12">
-
-                <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-
-                <form id="feedbackForm" class="text-center">
-
-                  <div class="form-group">
-
-                    <label for="name">如何称呼？&nbsp;</label>
-
-                    <input type="text" class="form-control" id="name" name="name" placeholder="如何称呼" aria-describedby="nameHelp">
-
-                    <span id="nameHelp" class="form-text text-muted" style="display: none;">Please enter your name.</span>
-
-                  </div>
-
-                  <div class="form-group">
-
-                    <label for="email">E-Mail</label>
-
-                    <input type="email" class="form-control" id="email" name="email" placeholder="电子邮件地址" aria-describedby="emailHelp">
-
-                    <span id="emailHelp" class="form-text text-muted" style="display: none;">Please enter a valid e-mail address.</span>
-
-                  </div>
-
-                  <div class="form-group">
-
-                    <label for="message">反馈内容</label>
-
-                    <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="请输入您的反馈内容。" aria-describedby="messageHelp"></textarea>
-
-                    <span id="messageHelp" class="form-text text-muted" style="display: none;">Please enter a message.</span>
-
-					  <!------------如果你看了源代码你就会知道这个反馈没有任何作用--------->
-
-                  </div>
-
-                  <button type="submit" id="feedbackSubmit" class="btn btn-primary btn-lg">发送</button>
-
-                </form>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
     </div>
 
-    <footer class="text-center">
-
+    <section class="section about" id="aboutus">
       <div class="container">
-
-        <div class="row">
-
-          <div class="col-12">
-
-            <p>© CreatiVoiden 2022-2026. 保留所有权利。</p>
-
+        <div class="section-head reveal">
+          <div>
+            <div class="section-label">
+              <span class="section-no">01</span>
+              <span class="section-kicker">ABOUT US</span>
+            </div>
+            <h2>关于我们</h2>
           </div>
-
+          <p class="section-desc">一支高中生影视团队，认真对待每一帧画面，也认真对待每一个还不成熟的想法。</p>
         </div>
 
+        <div class="about-grid">
+          <article class="profile-card reveal" aria-label="团队成员 Steve">
+            <img class="profile-watermark" src="images/intervoiden2.png" alt="" aria-hidden="true">
+            <div class="profile-photo">
+              <img src="images/hd.jpg" alt="Steve 的头像" width="140" height="140" loading="lazy" decoding="async">
+            </div>
+            <span class="tag">TEAM / 团队成员</span>
+            <h3>Steve</h3>
+            <p class="profile-role">学生评委</p>
+            <p class="profile-detail">第七、八届国际中学生电影展</p>
+            <div class="profile-foot">
+              <span>CREATIVOIDEN</span>
+              <span>2022 — NOW</span>
+            </div>
+          </article>
+
+          <div class="about-copy reveal">
+            <h3>在虚空里，<br>造一点真实的光。</h3>
+            <p>CreatiVoiden（虚空影视）是一支由高中生组成的影视团队。我们喜欢镜头、画面和代码，也喜欢把脑海里那些还没成形的想法，一点点做出来。</p>
+            <p>从 VoidenMedia 计划到各种影像与开发实验，我们仍然在学习，也仍然在继续。</p>
+            <ul class="pill-row" aria-label="我们关注的方向">
+              <li class="pill">影视制作</li>
+              <li class="pill">视觉设计</li>
+              <li class="pill">创意开发</li>
+            </ul>
+            <a class="link-arrow" href="new/">看看我们做过什么 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section now" id="now">
+      <div class="container">
+        <div class="project-card reveal">
+          <div class="project-copy">
+            <span class="tag tag-live">
+              <span class="live-dot" aria-hidden="true"></span>
+              02 · IN PROGRESS
+            </span>
+            <h2>VoidenMedia<br><span class="grad-text">虚空影视计划</span></h2>
+            <p>一个仍在生长的影像计划。我们把脑海里的画面拍下来、做出来，也把每一次尝试留在这里。</p>
+            <p class="project-note">计划正在进行中，更多内容会陆续更新。</p>
+            <a class="btn btn-primary" href="new/">
+              了解更多
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="project-visual" aria-hidden="true">
+            <div class="poster-stack">
+              <div class="poster poster-back"></div>
+              <div class="poster poster-mid"></div>
+              <div class="poster poster-front">
+                <div class="poster-top">
+                  <span>VOIDENMEDIA</span>
+                  <span class="poster-live"><span class="live-dot"></span>LIVE</span>
+                </div>
+                <div class="poster-mark">
+                  <img src="images/intervoiden2.png" alt="" width="233" height="233">
+                </div>
+                <div class="poster-bottom">
+                  <strong>虚空影视计划</strong>
+                  <span>2022 — NOW</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ideas" id="ideas">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-label">
+              <span class="section-no">03</span>
+              <span class="section-kicker">OUR BELIEFS</span>
+            </div>
+            <h2>理念</h2>
+          </div>
+          <p class="section-desc">一些我们愿意相信，也愿意一直做下去的事。</p>
+        </div>
+
+        <div class="quote-grid">
+          <blockquote class="quote-card reveal">
+            <span class="quote-index">01</span>
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text">我们活着不能与草木同腐，不能醉生梦死，枉度人生，要有所作为</p>
+            <footer class="quote-author">方志敏烈士</footer>
+          </blockquote>
+
+          <blockquote class="quote-card reveal">
+            <span class="quote-index">02</span>
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text">为科学和技术开拓新道路的，有时并不是科学界的著名人物，而是科学界毫不知名的人物，平凡的人物，实践家，工作革新者</p>
+            <footer class="quote-author">约瑟夫·维萨里奥诺维奇·斯大林</footer>
+          </blockquote>
+
+          <blockquote class="quote-card reveal">
+            <span class="quote-index">03</span>
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text">计算机天生就是用来解决以前没有过的问题的</p>
+            <footer class="quote-author">比尔·盖茨</footer>
+          </blockquote>
+
+          <blockquote class="quote-card reveal">
+            <span class="quote-index">04</span>
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text">如果你以为用户是白痴，那就只有白痴才用它</p>
+            <footer class="quote-author">Linux 之父 李纳斯·托沃兹</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="reply">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="section-label">
+            <span class="section-no">04</span>
+            <span class="section-kicker">GET IN TOUCH</span>
+          </div>
+          <h2>有想法，<br>就聊一聊。</h2>
+          <p>无论是一起做点什么，还是只想说一句“这个做得还行”，都欢迎写信给我们。</p>
+
+          <ul class="contact-list">
+            <li>
+              <a href="mailto:Steve-Voiden@Outlook.com">
+                <span class="contact-label">EMAIL</span>
+                <span class="contact-value">Steve-Voiden@Outlook.com</span>
+                <span class="contact-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">
+                <span class="contact-label">BILIBILI</span>
+                <span class="contact-value">CreatiVoiden 的影像主页</span>
+                <span class="contact-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:Steve-Voiden@Outlook.com?subject=%E5%8A%A0%E5%85%A5%20CreatiVoiden">
+                <span class="contact-label">JOIN US</span>
+                <span class="contact-value">加入我们，一起把想法做出来</span>
+                <span class="contact-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="feedback-card reveal" id="feedbackForm" action="mailto:Steve-Voiden@Outlook.com" method="post" enctype="text/plain" novalidate>
+          <div class="feedback-head">
+            <h3>留下一条反馈</h3>
+            <span class="mono">FEEDBACK</span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">如何称呼？</label>
+              <input type="text" id="name" name="name" placeholder="你的名字" autocomplete="name" maxlength="40" aria-describedby="nameError" required>
+              <span class="field-error" id="nameError" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="120" aria-describedby="emailError" required>
+              <span class="field-error" id="emailError" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">反馈内容</label>
+            <textarea id="message" name="message" rows="5" placeholder="想说什么都可以。" maxlength="1000" aria-describedby="messageError" required></textarea>
+            <span class="field-error" id="messageError" role="alert"></span>
+          </div>
+
+          <button class="btn btn-primary btn-submit" type="submit">
+            发送反馈
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </button>
+
+          <p class="form-note">点击发送后会打开你的邮件客户端，收件人是 <a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a>。也可以直接写信给我们。</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="#aboutus">关于我们</a></li>
+            <li><a href="#now">正在进行</a></li>
+            <li><a href="#ideas">理念</a></li>
+            <li><a href="#reply">反馈</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="download.html">下载中心</a></li>
+          </ul>
+        </div>
       </div>
 
-    </footer>
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="js/jquery-3.4.1.min.js"></script> 
-
-    <!-- Include all compiled plugins (below), or include individual files as needed --> 
-
-    <script src="js/popper.min.js"></script> 
-
-    <script src="js/bootstrap-4.4.1.js"></script>
-
-  </body>
-
+  <script async charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+  <script>
+    (function initLA(attempt) {
+      if (window.LA && typeof window.LA.init === 'function') {
+        window.LA.init({id: "Jusm5pvfoXggzVSE", ck: "Jusm5pvfoXggzVSE"});
+      } else if (attempt < 20) {
+        window.setTimeout(function () {
+          initLA(attempt + 1);
+        }, 500);
+      }
+    })(0);
+  </script>
+  <script src="js/main.js" defer></script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -1,66 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I386</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    img {
-      max-width: 40%;
-      height: auto;
-    }
-    
-    h1 {
-      color: #333;
-    }
-    
-    p {
-      color: #777;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Void-DOS | CREATIVOIDEN ARCHIVE</title>
+  <meta name="description" content="Void-DOS 是用于替代 CMD 的命令行应用程序，Void 系列最早的一次实验。旧版本 1.0.3 已归档。">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Void-DOS | CREATIVOIDEN ARCHIVE">
+  <meta property="og:description" content="用于替代 CMD 的应用程序，Void 系列最早的一次实验。">
+  <meta property="og:url" content="https://voiden.cn/void-dos/app2.html">
+  <meta property="og:image" content="https://voiden.cn/void-dos/out1.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://voiden.cn/void-dos/app2.html">
 
-    /* 返回按钮样式 */
-    .back-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ddd;
-      color: #333;
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-     /* 下载按钮样式 */
-     .download-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgb(253, 0, 0);
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-  </style>
+  <link rel="icon" href="../images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="../images/intervoiden2.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
 </head>
-<body>
+<body class="subpage product-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <a href="../index.html" class="back-button">返回</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
 
-  <h1>Void-DOS</h1>
-  
-  <h2>程序描述</h2>
-  <p>这是用于替代CMD的应用程序。</p>
-  
-  <h2>程序截图</h2>
-  <img src="out1.png" alt="程序截图">
-  
-  
-  <h2>下载和安装</h2>
-  <p>您可以在以下链接中下载程序：</p>
-  <a href="Void-DOS【1.0.3】Setup.exe" class="download-button">下载</a>
-  
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">主页</a>
+        <a href="../index.html#aboutus">关于我们</a>
+        <a href="../new/">正在进行</a>
+        <a href="../index.html#ideas">理念</a>
+        <a href="../index.html#reply">反馈</a>
+        <a class="nav-cta is-active" href="../download.html" aria-current="page">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero page-hero" id="top" data-ghost="VOID-DOS">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
+
+      <div class="container page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="../index.html">首页</a>
+          <span aria-hidden="true">/</span>
+          <a href="../download.html">下载中心</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Void-DOS</span>
+        </nav>
+
+        <span class="eyebrow">CREATIVOIDEN · ARCHIVED SOFTWARE</span>
+        <h1>Void-DOS</h1>
+        <p class="hero-sub">用于替代 CMD 的命令行应用程序，也是 Void 系列最早的一次实验。旧版本 1.0.3 已归档。</p>
+
+        <div class="page-hero-badges">
+          <span class="status status--archived">已停止支持</span>
+          <span class="status status--info">WINDOWS</span>
+          <span class="status status--info">V1.0.3</span>
+        </div>
+
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="#download">
+            查看下载
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4v12"></path><path d="m7 11 5 5 5-5"></path><path d="M5 20h14"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="../download.html">返回下载中心</a>
+        </div>
+
+        <p class="page-hero-note">ARCHIVE / LAST VERSION 1.0.3</p>
+      </div>
+    </section>
+
+    <section class="page-section" id="download">
+      <div class="container detail-grid">
+        <aside class="detail-sidebar">
+          <div class="download-card reveal">
+            <span class="status status--archived">已停止支持</span>
+            <h2>下载</h2>
+            <p>旧版本 1.0.3 的安装文件仍然保留在站点内。</p>
+
+            <dl class="download-meta">
+              <div><dt>类型</dt><dd>命令行工具</dd></div>
+              <div><dt>平台</dt><dd>Windows</dd></div>
+              <div><dt>版本</dt><dd>1.0.3</dd></div>
+              <div><dt>文件</dt><dd>Setup.exe</dd></div>
+              <div><dt>状态</dt><dd>已归档</dd></div>
+            </dl>
+
+            <div class="callout">
+              <strong>注意：</strong>这是旧版本，已停止支持，不再保证兼容性与更新。
+            </div>
+
+            <a class="btn btn-primary btn-block" href="Void-DOS%E3%80%901.0.3%E3%80%91Setup.exe" download="Void-DOS-1.0.3-Setup.exe">
+              下载 Void-DOS 1.0.3
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+              </svg>
+            </a>
+
+            <p class="form-note">文件来自站点归档，下载与运行前请自行确认安全性。</p>
+          </div>
+        </aside>
+
+        <div class="detail-content">
+          <div class="page-head reveal">
+            <div class="section-label">
+              <span class="section-no">01</span>
+              <span class="section-kicker">OVERVIEW</span>
+            </div>
+            <h2>关于这个项目</h2>
+            <p>Void-DOS 是 Void 系列最早的一次命令行实验。</p>
+          </div>
+
+          <div class="prose reveal">
+            <p>这是用于替代 CMD 的应用程序。它尝试把熟悉的命令行体验重新包装成 Void 系列的样子，也是后来很多小工具与实验的起点。</p>
+            <p>项目目前已经停止支持，只保留 1.0.3 版本作为归档。如果你只是想看看它长什么样，截图和说明会一直留在这里。</p>
+          </div>
+
+          <div class="shot-grid shot-grid--single reveal">
+            <figure class="shot">
+              <img src="out1.jpg" alt="Void-DOS 命令行界面截图" width="1400" height="836" loading="lazy" decoding="async">
+              <figcaption>Void-DOS / 命令行界面</figcaption>
+            </figure>
+          </div>
+
+          <div class="page-head reveal">
+            <div class="section-label">
+              <span class="section-no">02</span>
+              <span class="section-kicker">DETAILS</span>
+            </div>
+            <h2>功能与要求</h2>
+          </div>
+
+          <div class="two-lists reveal">
+            <div>
+              <h3>功能</h3>
+              <ul class="check-list">
+                <li>替代 CMD 的基础命令行操作</li>
+                <li>Void 系列最早的实验版本</li>
+                <li>项目已停止更新</li>
+              </ul>
+            </div>
+            <div>
+              <h3>运行要求</h3>
+              <ul class="check-list">
+                <li>Windows 环境</li>
+                <li>能运行 CMD 的硬件环境</li>
+                <li>仅保留 1.0.3 归档版本</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--cta">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <span class="mono">CREATIVOIDEN ARCHIVE</span>
+            <h2>还有别的项目。</h2>
+            <p>回到下载中心，看看其他已经归档的软件与工具。</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="../download.html">返回下载中心</a>
+            <a class="btn btn-ghost" href="../index.html">回到主页</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#aboutus">关于我们</a></li>
+            <li><a href="../new/">正在进行</a></li>
+            <li><a href="../index.html#ideas">理念</a></li>
+            <li><a href="../download.html">下载中心</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="../index.html#reply">反馈</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

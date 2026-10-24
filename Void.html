@@ -1,28 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" class="no-js">
 <head>
-<title>Void Corporation</title>
-<style>
-h1{
-   color:blue;
-   font-family:Microsoft Yahai;
-   font-size:500%;
-}
-p{
-   color:green;
-   fon-family:verdana;
-   font-size:200%;
-}
-body{
-   background-color:rgba(55,55,255,0.4);
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Void OS · Void Corporation | CREATIVOIDEN</title>
+  <meta name="description" content="Void OS 尚未开发完成。Void Corporation 是一个关于系统与界面的长期实验。">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Void OS · Void Corporation">
+  <meta property="og:description" content="Void OS 尚未开发完成。">
+  <meta property="og:url" content="https://voiden.cn/Void.html">
+  <meta property="og:image" content="https://voiden.cn/images/图标.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://voiden.cn/Void.html">
+
+  <link rel="icon" href="images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="images/intervoiden2.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
 </head>
-<body>
-<h1 style="text-align:center;background-color:rgb(10,250,10);">Welcome to Void Corporation</h1>
-<p style="text-align:center;">Void OS 尚未开发完成</p>
-<p style="font-size:100%;color:black;">如要了解详情，请访问
-<a href="https://gsyywm.top">我们的主页</a>
+<body class="subpage">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">主页</a>
+        <a href="index.html#aboutus">关于我们</a>
+        <a href="new/">正在进行</a>
+        <a href="index.html#ideas">理念</a>
+        <a href="index.html#reply">反馈</a>
+        <a class="nav-cta" href="download.html">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero page-hero" id="top" data-ghost="VOID">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
+
+      <div class="container page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Void Corporation</span>
+        </nav>
+
+        <span class="eyebrow">VOID CORPORATION · IN LIMBO</span>
+        <h1>Void <span class="grad-text">OS</span></h1>
+        <p class="hero-sub">Void OS 尚未开发完成。它是一次关于系统、界面与“如果”的长期实验，目前仍然停在想象里。</p>
+
+        <div class="page-hero-badges">
+          <span class="status status--archived">尚未开发完成</span>
+          <span class="status status--info">VOID CORPORATION</span>
+        </div>
+
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="https://gsyywm.top" target="_blank" rel="noopener noreferrer">
+            访问 Void Corporation
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-ghost" href="index.html">返回 CreatiVoiden</a>
+        </div>
+
+        <p class="page-hero-note">STATUS / IN LIMBO · SOMEDAY, MAYBE</p>
+      </div>
+    </section>
+
+    <section class="page-section" id="about">
+      <div class="container split">
+        <div class="prose reveal">
+          <div class="section-label">
+            <span class="section-no">01</span>
+            <span class="section-kicker">A SEPARATE EXPERIMENT</span>
+          </div>
+          <h2>关于 Void Corporation</h2>
+          <p>Void OS 尚未开发完成。这是一个关于系统与界面的长期实验，也是一块留给未完成想法的空间。</p>
+          <p>如要了解详情，请访问 <a href="https://gsyywm.top" target="_blank" rel="noopener noreferrer">我们的主页</a>。</p>
+          <p>它和 CreatiVoiden 的影像计划不是同一件事，但共享同一种好奇心：把还没存在的东西，先试着做出来一点点。</p>
+        </div>
+
+        <aside class="coming-card reveal" aria-label="Void OS 状态">
+          <div class="coming-icon">
+            <img src="images/图标.png" alt="" width="136" height="126" loading="lazy" decoding="async">
+          </div>
+          <span class="tag">VOID OS</span>
+          <h2>Coming later, maybe.</h2>
+          <p>尚未开发完成</p>
+          <div class="progress-line" aria-hidden="true"><span></span></div>
+          <span class="mono">STATUS / IN LIMBO</span>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="index.html">主页</a></li>
+            <li><a href="index.html#aboutus">关于我们</a></li>
+            <li><a href="new/">正在进行</a></li>
+            <li><a href="index.html#ideas">理念</a></li>
+            <li><a href="download.html">下载中心</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="index.html#reply">反馈</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
-

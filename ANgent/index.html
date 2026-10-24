@@ -1,101 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" class="no-js">
 <head>
-    <title>CreatiVoiden</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        nav {
-            background-color: #f5f5f5;
-            padding: 10px;
-        }
-        
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        nav ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        
-        nav ul li a {
-            color: #333;
-            text-decoration: none;
-            padding: 5px 10px;
-        }
-        
-        nav ul li a:hover {
-            background-color: #333;
-            color: #fff;
-        }
-        
-        main {
-            padding: 20px;
-        }
-        
-        section {
-            margin-bottom: 20px;
-        }
-        
-        h1, h2 {
-            color: #333;
-        }
-        
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome</h1>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">关于我</a></li>
-            <li><a href="#">联系方式</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <section>
-            <h2>About Creativoiden</h2>
-            <p>暂无记录</p>
-        </section>
-        
-        <section>
-            <h2>联系方式</h2>
-            <p>你可以通过以下方式联系到我：</p>
-            <ul>
-                <li>Email: Voiden-Steve@Outlook.com</li>
-                <li>电话: - </li>
-            </ul>
-        </section>
-    </main>
-    
-    <footer>
-        <p>版权所有 &copy; 2026 CreatiVoiden</p>
-    </footer>
-</body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent | CREATIVOIDEN</title>
+  <meta name="description" content="CreatiVoiden 的内部页面。暂无记录。">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://voiden.cn/ANgent/">
 
+  <link rel="icon" href="../images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="../images/intervoiden2.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
+</head>
+<body class="subpage">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">主页</a>
+        <a href="../index.html#aboutus">关于我们</a>
+        <a href="../new/">正在进行</a>
+        <a href="../index.html#ideas">理念</a>
+        <a href="../index.html#reply">反馈</a>
+        <a class="nav-cta" href="../download.html">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero page-hero" id="top" data-ghost="AGENT">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
+
+      <div class="container page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="../index.html">首页</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Agent</span>
+        </nav>
+
+        <span class="eyebrow">INTERNAL · CREATIVOIDEN</span>
+        <h1>Agent</h1>
+        <p class="hero-sub">一个保留中的内部页面。目前没有公开的记录，只有联系方式还留在这里。</p>
+
+        <div class="page-hero-badges">
+          <span class="status status--info">内部页面</span>
+          <span class="status status--archived">暂无记录</span>
+        </div>
+
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="mailto:Steve-Voiden@Outlook.com">
+            写信给我们
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="../index.html">返回主页</a>
+        </div>
+
+        <p class="page-hero-note">INTERNAL PAGE / NO PUBLIC RECORDS</p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container split">
+        <div class="prose reveal">
+          <div class="section-label">
+            <span class="section-no">01</span>
+            <span class="section-kicker">ABOUT</span>
+          </div>
+          <h2>About Creativoiden</h2>
+          <p>暂无记录。</p>
+          <p>这个页面暂时没有更多内容。如果你在找团队介绍、作品或下载，请回到主页，或者直接写信给我们。</p>
+          <p><a href="../index.html#aboutus">了解 CreatiVoiden →</a></p>
+        </div>
+
+        <aside class="info-card reveal" aria-label="联系方式">
+          <h3>联系方式</h3>
+          <div class="contact-lines">
+            <a href="mailto:Steve-Voiden@Outlook.com">
+              <span class="mono">EMAIL</span>
+              Steve-Voiden@Outlook.com
+            </a>
+            <span>
+              <span class="mono">PHONE</span>
+              -
+            </span>
+          </div>
+          <a class="btn btn-ghost btn-block" href="../index.html#reply">前往反馈页面</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#aboutus">关于我们</a></li>
+            <li><a href="../new/">正在进行</a></li>
+            <li><a href="../index.html#ideas">理念</a></li>
+            <li><a href="../download.html">下载中心</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="../index.html#reply">反馈</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
 </html>

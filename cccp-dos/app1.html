@@ -1,97 +1,264 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CCCP-DOS</title>
-  <style>
-    /* 添加一些样式以美化页面 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    
-    h1 {
-      color: #333;
-    }
-    
-    p {
-      color: #777;
-    }
-    
-    /* 返回按钮样式 */
-    .back-button, .download-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ddd;
-      color: #333;
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-    
-    /* 旧版本下载按钮样式 */
-    .download-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgb(253, 0, 0);
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-    /* 新版本下载按钮样式 */
-    .dn-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgb(190, 183, 183);
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CCCP-DOS | CREATIVOIDEN ARCHIVE</title>
+  <meta name="description" content="CCCP-DOS 是由 Our-Soviet 开发的命令行应用程序，用于替代 CMD。项目已停止支持，历史版本仍可查阅。">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CCCP-DOS | CREATIVOIDEN ARCHIVE">
+  <meta property="og:description" content="由 Our-Soviet 开发、用于替代 CMD 的命令行应用程序。项目已归档。">
+  <meta property="og:url" content="https://voiden.cn/cccp-dos/app1.html">
+  <meta property="og:image" content="https://voiden.cn/cccp-dos/scre_cccp-dos.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://voiden.cn/cccp-dos/app1.html">
+
+  <link rel="icon" href="../images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="../images/intervoiden2.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
 </head>
-<body>
-  <a href="index.html" class="back-button">返回</a>
-  
-  <h1>CCCP-DOS</h1>
-  <img src="cccp-dos_ico.jpg" alt="应用程序截图">
-  
-  <h2>应用程序描述</h2>
-  <p>这是由Our-Soviet开发的用于替代CMD的应用程序。</p>
-  
-  <h2>应用程序截图</h2>
-  <img src="scre_cccp-dos.PNG" alt="应用程序截图">
-  <img src="scre_cccp-dos_message.PNG" alt="应用程序截图">
-  <h2>应用程序功能</h2>
-  <ul>
-    <li>替代CMD,仅此而已</li>
-    <li>况且现在功能还不多</li>
-    <li>寄</li>
-    <!-- 添加更多功能列表项 -->
-  </ul>
-  
-  <h2>应用程序要求</h2>
-  <ul>
-    <li>操作系统要求:Windows7及以上</li>
-    <li>硬件要求:能运行CMD就行</li>
-    <!-- 添加更多要求列表项 -->
-  </ul>
-  
-  <h2>下载和安装</h2>
-  <p style="color:red">*最新版本1.1.1出现严重BUG,不提供下载</p>
-  <a  class="dn-button">下载最新版</a>
-  <a href="https://pan.huang1111.cn/s/7VmRHg?path=%2F" class="download-button">下载应用程序</a>
-  
-  <h2>应用程序评价</h2>
-  <!-- 添加应用程序评价的内容，可以是用户评价、评分等 -->
-  <p>无</p>
-  
-  <h2>常见问题</h2>
-  <p>尚未发现</p>
-  
+<body class="subpage product-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">主页</a>
+        <a href="../index.html#aboutus">关于我们</a>
+        <a href="../new/">正在进行</a>
+        <a href="../index.html#ideas">理念</a>
+        <a href="../index.html#reply">反馈</a>
+        <a class="nav-cta is-active" href="../download.html" aria-current="page">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero page-hero" id="top" data-ghost="CCCP-DOS">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
+
+      <div class="container page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="../index.html">首页</a>
+          <span aria-hidden="true">/</span>
+          <a href="../download.html">下载中心</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">CCCP-DOS</span>
+        </nav>
+
+        <span class="eyebrow">OUR-SOVIET · ARCHIVED SOFTWARE</span>
+        <h1>CCCP-DOS</h1>
+        <p class="hero-sub">由 Our-Soviet 开发的命令行应用程序，目标是替代 CMD。项目已经停止更新，历史版本仍然保留。</p>
+
+        <div class="page-hero-badges">
+          <span class="status status--archived">已停止支持</span>
+          <span class="status status--info">WINDOWS 7+</span>
+          <span class="status status--info">V1.1.1</span>
+        </div>
+
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="#download">
+            查看下载
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4v12"></path><path d="m7 11 5 5 5-5"></path><path d="M5 20h14"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="../download.html">返回下载中心</a>
+        </div>
+
+        <p class="page-hero-note">ARCHIVE / LAST VERSION 1.1.1</p>
+      </div>
+    </section>
+
+    <section class="page-section" id="download">
+      <div class="container detail-grid">
+        <aside class="detail-sidebar">
+          <div class="download-card reveal">
+            <span class="status status--archived">已停止支持</span>
+            <h2>下载</h2>
+            <p>最新版本因严重 BUG 暂不提供下载。历史版本可以通过外部网盘获取。</p>
+
+            <dl class="download-meta">
+              <div><dt>开发者</dt><dd>Our-Soviet</dd></div>
+              <div><dt>平台</dt><dd>Windows 7+</dd></div>
+              <div><dt>类型</dt><dd>命令行工具</dd></div>
+              <div><dt>最后版本</dt><dd>1.1.1</dd></div>
+              <div><dt>状态</dt><dd>已归档</dd></div>
+            </dl>
+
+            <div class="callout">
+              <strong>注意：</strong>最新版本 1.1.1 出现严重 BUG，不提供下载。
+            </div>
+
+            <span class="btn btn-ghost btn-block is-disabled" aria-disabled="true">最新版暂不提供</span>
+            <a class="btn btn-primary btn-block" href="https://pan.huang1111.cn/s/7VmRHg?path=%2F" target="_blank" rel="noopener noreferrer">
+              下载历史版本
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <p class="form-note">历史版本位于外部网盘。下载与运行前请自行确认文件安全性。</p>
+          </div>
+        </aside>
+
+        <div class="detail-content">
+          <div class="page-head reveal">
+            <div class="section-label">
+              <span class="section-no">01</span>
+              <span class="section-kicker">OVERVIEW</span>
+            </div>
+            <h2>关于这个项目</h2>
+            <p>CCCP-DOS 的目标很简单：做一个能替代 CMD 的命令行程序。</p>
+          </div>
+
+          <div class="prose reveal">
+            <p>这是由 Our-Soviet 开发的用于替代 CMD 的应用程序。它保留了最基础的命令行交互，界面直接、功能不多，也更像一次对旧工具的重新想象。</p>
+            <p>项目目前已经停止更新。最新版本仍然存在严重 BUG，因此页面只保留历史版本的入口，供需要的人查阅。</p>
+          </div>
+
+          <div class="shot-grid reveal">
+            <figure class="shot">
+              <img src="scre_cccp-dos.png" alt="CCCP-DOS 命令行界面截图" width="550" height="375" loading="lazy" decoding="async">
+              <figcaption>CCCP-DOS 1.1.1 / 主界面</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="scre_cccp-dos_message.png" alt="CCCP-DOS 启动提示截图" width="550" height="375" loading="lazy" decoding="async">
+              <figcaption>启动提示 / 版本信息</figcaption>
+            </figure>
+          </div>
+
+          <div class="page-head reveal">
+            <div class="section-label">
+              <span class="section-no">02</span>
+              <span class="section-kicker">DETAILS</span>
+            </div>
+            <h2>功能与要求</h2>
+          </div>
+
+          <div class="two-lists reveal">
+            <div>
+              <h3>功能</h3>
+              <ul class="check-list">
+                <li>替代 CMD 的基础命令行操作</li>
+                <li>界面直接，功能保持精简</li>
+                <li>项目已停止更新</li>
+              </ul>
+            </div>
+            <div>
+              <h3>运行要求</h3>
+              <ul class="check-list">
+                <li>Windows 7 及以上系统</li>
+                <li>能运行 CMD 的硬件环境</li>
+                <li>历史版本通过外部网盘获取</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--cta">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <span class="mono">CREATIVOIDEN ARCHIVE</span>
+            <h2>还有别的项目。</h2>
+            <p>回到下载中心，看看其他已经归档的软件与工具。</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="../download.html">返回下载中心</a>
+            <a class="btn btn-ghost" href="../index.html">回到主页</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#aboutus">关于我们</a></li>
+            <li><a href="../new/">正在进行</a></li>
+            <li><a href="../index.html#ideas">理念</a></li>
+            <li><a href="../download.html">下载中心</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="../index.html#reply">反馈</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

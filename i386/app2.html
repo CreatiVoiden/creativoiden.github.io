@@ -1,63 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I386</title>
-  <style>
-    /* 添加一些样式以美化页面 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    
-    h1 {
-      color: #333;
-    }
-    
-    p {
-      color: #777;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I386 修改工具 | CREATIVOIDEN ARCHIVE</title>
+  <meta name="description" content="I386 修改工具是用于修改 I386 封装的 Windows XP 安装盘的配套工具，配套视频教程使用。">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I386 修改工具 | CREATIVOIDEN ARCHIVE">
+  <meta property="og:description" content="用于修改 I386 封装的 Windows XP 安装盘的配套工具。">
+  <meta property="og:url" content="https://voiden.cn/i386/app2.html">
+  <meta property="og:image" content="https://voiden.cn/i386/scre_i386.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://voiden.cn/i386/app2.html">
 
-    /* 返回按钮样式 */
-    .back-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ddd;
-      color: #333;
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-     /* 下载按钮样式 */
-     .download-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgb(253, 0, 0);
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-  </style>
+  <link rel="icon" href="../images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="../images/intervoiden2.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/subpage.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
 </head>
-<body>
+<body class="subpage product-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <a href="index.html" class="back-button">返回</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
 
-  <h1>I386修改工具</h1>
-  
-  <h2>程序描述</h2>
-  <p>这是来自Bilibili著名Up主"黄二哩个黄"所发布的视频教程《[系统封装]拥有你自己的原版XP安装盘！如何修改I386封装的WindowsXP(...》的配套工具。</p>
-  
-  <h2>程序截图</h2>
-  <img src="scre_i386.PNG" alt="程序截图">
-  
-  
-  <h2>下载和安装</h2>
-  <p>您可以在以下链接中下载程序：</p>
-  <a href="http://down.huang2.cn/File/I386/i386.zip" class="download-button">下载</a>
-  
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">主页</a>
+        <a href="../index.html#aboutus">关于我们</a>
+        <a href="../new/">正在进行</a>
+        <a href="../index.html#ideas">理念</a>
+        <a href="../index.html#reply">反馈</a>
+        <a class="nav-cta is-active" href="../download.html" aria-current="page">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero page-hero" id="top" data-ghost="I386">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
+
+      <div class="container page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="../index.html">首页</a>
+          <span aria-hidden="true">/</span>
+          <a href="../download.html">下载中心</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">I386 修改工具</span>
+        </nav>
+
+        <span class="eyebrow">CREATIVOIDEN ARCHIVE · TOOL</span>
+        <h1>I386 修改工具</h1>
+        <p class="hero-sub">用于修改 I386 封装的 Windows XP 安装盘，配套视频教程使用的一个小工具。</p>
+
+        <div class="page-hero-badges">
+          <span class="status status--info">归档工具</span>
+          <span class="status status--info">WINDOWS XP</span>
+          <span class="status status--external">外部下载</span>
+        </div>
+
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="#download">
+            查看下载
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4v12"></path><path d="m7 11 5 5 5-5"></path><path d="M5 20h14"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="../download.html">返回下载中心</a>
+        </div>
+
+        <p class="page-hero-note">ARCHIVE / EXTERNAL DISTRIBUTION</p>
+      </div>
+    </section>
+
+    <section class="page-section" id="download">
+      <div class="container detail-grid">
+        <aside class="detail-sidebar">
+          <div class="download-card reveal">
+            <span class="status status--info">归档工具</span>
+            <h2>下载</h2>
+            <p>工具目前由外部服务器提供下载，文件为 i386.zip。</p>
+
+            <dl class="download-meta">
+              <div><dt>类型</dt><dd>系统修改工具</dd></div>
+              <div><dt>平台</dt><dd>Windows XP</dd></div>
+              <div><dt>文件</dt><dd>i386.zip</dd></div>
+              <div><dt>来源</dt><dd>外部链接</dd></div>
+              <div><dt>状态</dt><dd>归档</dd></div>
+            </dl>
+
+            <div class="callout">
+              请先阅读配套视频教程，并在操作前备份原始文件。修改安装盘有风险，请确认自己知道在做什么。
+            </div>
+
+            <a class="btn btn-primary btn-block" href="http://down.huang2.cn/File/I386/i386.zip" target="_blank" rel="noopener noreferrer">
+              下载 i386.zip
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <p class="form-note">外部链接，下载前请自行确认文件安全性。</p>
+          </div>
+        </aside>
+
+        <div class="detail-content">
+          <div class="page-head reveal">
+            <div class="section-label">
+              <span class="section-no">01</span>
+              <span class="section-kicker">OVERVIEW</span>
+            </div>
+            <h2>关于这个工具</h2>
+            <p>来自 Bilibili Up 主“黄二哩个黄”的视频教程配套工具。</p>
+          </div>
+
+          <div class="prose reveal">
+            <p>这是来自 Bilibili 著名 Up 主“黄二哩个黄”所发布的视频教程《[系统封装]拥有你自己的原版 XP 安装盘！如何修改 I386 封装的 Windows XP……》的配套工具。</p>
+            <p>它用于修改 I386 封装的 Windows XP 安装盘。项目以归档形式保留，下载与使用建议先完整观看对应教程。</p>
+          </div>
+
+          <div class="shot-grid shot-grid--single reveal">
+            <figure class="shot">
+              <img src="scre_i386.png" alt="I386 修改工具与 i386.zip 文件截图" width="681" height="523" loading="lazy" decoding="async">
+              <figcaption>i386.zip / Windows XP 安装盘文件结构</figcaption>
+            </figure>
+          </div>
+
+          <div class="page-head reveal">
+            <div class="section-label">
+              <span class="section-no">02</span>
+              <span class="section-kicker">BEFORE USE</span>
+            </div>
+            <h2>使用提示</h2>
+          </div>
+
+          <div class="two-lists reveal">
+            <div>
+              <h3>开始之前</h3>
+              <ul class="check-list">
+                <li>先完整观看配套视频教程</li>
+                <li>备份原始 I386 目录与安装盘文件</li>
+                <li>确认系统版本与教程一致</li>
+              </ul>
+            </div>
+            <div>
+              <h3>下载信息</h3>
+              <ul class="check-list">
+                <li>文件为 i386.zip</li>
+                <li>由外部服务器提供下载</li>
+                <li>教程作者：黄二哩个黄</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--cta">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <span class="mono">CREATIVOIDEN ARCHIVE</span>
+            <h2>还有别的项目。</h2>
+            <p>回到下载中心，看看其他已经归档的软件与工具。</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="../download.html">返回下载中心</a>
+            <a class="btn btn-ghost" href="../index.html">回到主页</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="../images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../index.html#aboutus">关于我们</a></li>
+            <li><a href="../new/">正在进行</a></li>
+            <li><a href="../index.html#ideas">理念</a></li>
+            <li><a href="../download.html">下载中心</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="../index.html#reply">反馈</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

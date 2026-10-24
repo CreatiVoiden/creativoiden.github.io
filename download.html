@@ -1,93 +1,276 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" class="no-js">
 <head>
-  
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>下载中心</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    
-    h1 {
-      text-align: center;
-    }
-    
-    .app {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .app img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-    }
-    
-    .app .info {
-      flex-grow: 1;
-    }
-    
-    .app .name {
-      font-weight: bold;
-    }
-    
-    .app .description {
-      color: #888;
-    }
-    
-    .app .open-button {
-      background-color: #ff4747;
-      border: none;
-      color: white;
-      padding: 8px 16px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin-left: 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    
-    .app .open-button:hover {
-      background-color: #ffd780;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>下载中心 | CREATIVOIDEN</title>
+  <meta name="description" content="CreatiVoiden 与 VoidenMedia 的软件、工具与影像归档。CCCP-DOS、I386 修改工具、Void-DOS 等旧项目的下载与说明。">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="下载中心 | CREATIVOIDEN">
+  <meta property="og:description" content="CreatiVoiden 与 VoidenMedia 的软件、工具与影像归档。部分项目已停止支持，页面仍然保留。">
+  <meta property="og:url" content="https://voiden.cn/download.html">
+  <meta property="og:image" content="https://voiden.cn/images/intervoiden2.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://voiden.cn/download.html">
+
+  <link rel="icon" href="images/图标.ico" sizes="any">
+  <link rel="preload" as="image" href="images/intervoiden2.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/subpage.css">
+  <script>
+    document.documentElement.classList.replace('no-js', 'js');
+    window.setTimeout(function () {
+      if (!window.__voidenReady) {
+        document.documentElement.classList.remove('js');
+        document.documentElement.classList.add('no-js');
+      }
+    }, 4000);
+  </script>
 </head>
-<body>
-  <h1>下载中心</h1>
- <!-- <p style="text-align: center;">download center</p>-->
-  <!--<div class="app">
-    <img src="logo-s.jpg" alt="App 1">
-    <div class="info">
-      <div class="name">CCCP-DOS</div>
-      <div class="description">这是用于替代CMD的应用程序。</div>
+<body class="subpage">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="CreatiVoiden 主页">
+        <span class="brand-mark">
+          <img src="images/intervoiden2.png" alt="" width="32" height="32">
+        </span>
+        <span class="brand-text">
+          <strong>CREATIVOIDEN</strong>
+          <small>VOIDENMEDIA · 虚空影视</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">主页</a>
+        <a href="index.html#aboutus">关于我们</a>
+        <a href="new/">正在进行</a>
+        <a href="index.html#ideas">理念</a>
+        <a href="index.html#reply">反馈</a>
+        <a class="nav-cta is-active" href="download.html" aria-current="page">
+          下载
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero page-hero" id="top" data-ghost="DOWNLOAD">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-aurora" aria-hidden="true">
+        <span class="aurora aurora-1"></span>
+        <span class="aurora aurora-2"></span>
+        <span class="aurora aurora-3"></span>
+      </div>
+
+      <div class="container page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">下载中心</span>
+        </nav>
+
+        <span class="eyebrow">CREATIVOIDEN ARCHIVE</span>
+        <h1>下载中心</h1>
+        <p class="hero-sub">CreatiVoiden 与 VoidenMedia 的软件、工具和影像归档。部分项目已经停止支持，页面仍然保留，供下载与查阅。</p>
+
+        <div class="page-hero-badges">
+          <span class="status status--info">ARCHIVE / 2026</span>
+          <span class="status status--archived">部分项目已停止支持</span>
+        </div>
+
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="#archive">
+            浏览归档
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4v12"></path><path d="m7 11 5 5 5-5"></path><path d="M5 20h14"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="index.html">返回主页</a>
+        </div>
+
+        <p class="page-hero-note">LAST UPDATED / 2026 · WINDOWS ARCHIVE</p>
+      </div>
+    </section>
+
+    <section class="page-section" id="archive">
+      <div class="container">
+        <div class="page-head reveal">
+          <div class="section-label">
+            <span class="section-no">01</span>
+            <span class="section-kicker">SOFTWARE ARCHIVE</span>
+          </div>
+          <h2>软件与工具</h2>
+          <p>较早的项目主要面向 Windows 环境。部分项目已停止更新，下载前请先阅读详情页中的兼容性说明。</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal">
+            <div class="product-top">
+              <span class="app-icon">
+                <img src="cccp-dos/cccp-dos_ico.jpg" alt="" width="125" height="125" loading="lazy" decoding="async">
+              </span>
+              <span class="status status--archived">已停止支持</span>
+            </div>
+            <h3>CCCP-DOS</h3>
+            <p>由 Our-Soviet 开发，用于替代 CMD 的命令行应用程序。</p>
+            <div class="product-tags">
+              <span>WINDOWS 7+</span>
+              <span>CLI</span>
+              <span>ARCHIVED</span>
+            </div>
+            <a class="link-arrow" href="cccp-dos/app1.html">查看详情 <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-top">
+              <span class="app-icon">
+                <img src="i386.png" alt="" width="47" height="43" loading="lazy" decoding="async">
+              </span>
+              <span class="status status--info">归档工具</span>
+            </div>
+            <h3>I386 修改工具</h3>
+            <p>用于修改 I386 封装的 Windows XP 安装盘，配套视频教程使用。</p>
+            <div class="product-tags">
+              <span>WINDOWS XP</span>
+              <span>TOOL</span>
+              <span>EXTERNAL</span>
+            </div>
+            <a class="link-arrow" href="i386/app2.html">查看详情 <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-top">
+              <span class="app-icon app-icon--dark">
+                <img src="images/图标.png" alt="" width="136" height="126" loading="lazy" decoding="async">
+              </span>
+              <span class="status status--archived">已停止支持</span>
+            </div>
+            <h3>Void-DOS</h3>
+            <p>用于替代 CMD 的应用程序，Void 系列最早的一次实验。</p>
+            <div class="product-tags">
+              <span>WINDOWS</span>
+              <span>CLI</span>
+              <span>V1.0.3</span>
+            </div>
+            <a class="link-arrow" href="void-dos/app2.html">查看详情 <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--tight" id="notes">
+      <div class="container">
+        <div class="page-head reveal">
+          <div class="section-label">
+            <span class="section-no">02</span>
+            <span class="section-kicker">BEFORE YOU DOWNLOAD</span>
+          </div>
+          <h2>下载之前</h2>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card reveal">
+            <span class="mono">COMPATIBILITY</span>
+            <h3>兼容性</h3>
+            <p>旧项目主要面向 Windows 7 及以上环境，未在最新系统上完整测试。请先阅读详情页中的运行要求。</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="mono">ARCHIVED</span>
+            <h3>停止支持</h3>
+            <p>标记为“已停止支持”的项目不再更新，部分功能或下载链接可能已经失效。</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="mono">FEEDBACK</span>
+            <h3>链接反馈</h3>
+            <p>如果发现失效链接，或者需要某个旧版本，欢迎写信告诉我们。我们会尽量把能找回的文件补上。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--cta">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <span class="mono">GET IN TOUCH</span>
+            <h2>找不到需要的文件？</h2>
+            <p>如果下载链接失效，或者你想了解某个旧项目的更多信息，直接写信给我们就好。</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="mailto:Steve-Voiden@Outlook.com">
+              写信给我们
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+            <a class="btn btn-ghost" href="index.html#reply">前往反馈</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="CreatiVoiden 主页">
+            <span class="brand-mark">
+              <img src="images/intervoiden2.png" alt="" width="32" height="32">
+            </span>
+            <span class="brand-text">
+              <strong>CREATIVOIDEN</strong>
+              <small>VOIDENMEDIA · 虚空影视</small>
+            </span>
+          </a>
+          <p>一支高中生影视团队，在虚空里认真造光。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>导航</h4>
+          <ul>
+            <li><a href="index.html">主页</a></li>
+            <li><a href="index.html#aboutus">关于我们</a></li>
+            <li><a href="new/">正在进行</a></li>
+            <li><a href="index.html#ideas">理念</a></li>
+            <li><a href="download.html">下载中心</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:Steve-Voiden@Outlook.com">Steve-Voiden@Outlook.com</a></li>
+            <li><a href="https://space.bilibili.com/1372761792" target="_blank" rel="noopener noreferrer">Bilibili</a></li>
+            <li><a href="index.html#reply">反馈</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© CreatiVoiden 2022–2026. 保留所有权利。</p>
+        <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
     </div>
-    <a href="cccp-dos\app1.html" class="open-button">查看详情</a>
-  </div>
-  
-  <div class="app">
-    <img src="i386.png" alt="App 2">
-    <div class="info">
-      <div class="name">I386修改工具</div>
-      <div class="description">这是用于修改I386的工具。</div>
-    </div>
-    <a href="i386/app2.html" class="open-button">查看详情</a>
-  </div>-->
-  <!--
-  <div class="app">
-    <img src="图标.ico" alt="App 2">
-    <div class="info">
-      <div class="name">Void-DOS</div>
-      <div class="description">这是用于替代CMD的应用程序。</div>
-    </div>
-    <a href="void-dos/app2.html" class="open-button">查看详情</a>
-  </div>
-   添加更多应用 -->
-  
+  </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
