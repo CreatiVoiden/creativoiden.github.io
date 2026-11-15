@@ -139,15 +139,48 @@ function uploadFile(file, password, onProgress) {
 
 /* --------------------------------------------------------------- list */
 
-async function loadList() {
-  if (!API_BASE) {
-    el.listMeta.textContent = '上传接口尚未配置'
+const REPO = 'CreatiVoiden/creativoiden.github.io'
+const REPO_BRANCH = 'new'
+const REPO_DIR = 'files'
+
+// 接口没配置时的只读兜底：直接读 GitHub 的公开目录接口（匿名调用，有额度限制）
+async function loadListFromGithub() {
+  el.listMeta.textContent = '正在读取…'
+  const api = `https://api.github.com/repos/${REPO}/contents/${REPO_DIR}?ref=${REPO_BRANCH}`
+  try {
+    const res = await fetch(api, { headers: { Accept: 'application/vnd.github+json' } })
+    if (!res.ok) throw new Error(res.status === 403 ? '读取额度已用完，请稍后再试' : 'HTTP ' + res.status)
+    const data = await res.json()
+    if (!Array.isArray(data)) throw new Error('返回格式不正确')
+    const files = data
+      .filter((item) => item.type === 'file' && !item.name.startsWith('.'))
+      .map((item) => ({
+        name: item.name,
+        size: item.size,
+        updatedAt: '',
+        url: REPO_DIR + '/' + encodeURIComponent(item.name),
+        readonly: true,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'))
+    renderList(files, { readonly: true })
+  } catch (error) {
+    el.listMeta.textContent = '暂时读不到文件列表'
     el.list.replaceChildren(
       notice(
-        '接口未配置：管理员需要先部署 worker/ 里的 Cloudflare Worker，再把地址填进 js/files.js 的 DEFAULT_API。' +
-          '临时测试可以在网址后面加 ?api=https://你的worker地址',
+        '暂时读不到文件列表（' +
+          error.message +
+          '）。上传接口也还没配置：部署 worker/ 里的 Cloudflare Worker，' +
+          '再把地址填进 js/files.js 的 DEFAULT_API 之后，这里就会正常显示全部文件。',
       ),
     )
+  }
+}
+
+async function loadList() {
+  if (!API_BASE) {
+    el.uploadBtn.disabled = true
+    setStatus('上传接口尚未配置，暂时只能浏览', 'warn')
+    await loadListFromGithub()
     return
   }
 
@@ -163,7 +196,8 @@ async function loadList() {
   }
 }
 
-function renderList(files) {
+function renderList(files, options) {
+  const readonly = Boolean(options && options.readonly)
   if (!files.length) {
     el.listMeta.textContent = '还没有任何文件'
     el.list.replaceChildren(notice('这里还空着 —— 上传第一个文件试试。'))
@@ -173,7 +207,8 @@ function renderList(files) {
   files.forEach((file) => {
     total += Number(file.size) || 0
   })
-  el.listMeta.textContent = `共 ${files.length} 个文件，合计 ${fmtSize(total)}`
+  el.listMeta.textContent =
+    `共 ${files.length} 个文件，合计 ${fmtSize(total)}` + (readonly ? '（只读浏览：上传接口尚未配置）' : '')
 
   const rows = files.map((file) => {
     const row = document.createElement('div')
@@ -194,7 +229,7 @@ function renderList(files) {
     link.textContent = file.name
     const meta = document.createElement('span')
     meta.className = 'file-meta'
-    meta.textContent = fmtSize(file.size) + ' · ' + fmtDate(file.updatedAt)
+    meta.textContent = fmtSize(file.size) + (file.updatedAt ? ' · ' + fmtDate(file.updatedAt) : '')
     main.append(link, meta)
 
     const actions = document.createElement('div')
@@ -228,7 +263,8 @@ function renderList(files) {
     remove.textContent = '删除'
     remove.addEventListener('click', () => onDelete(file, remove))
 
-    actions.append(download, copy, remove)
+    actions.append(download, copy)
+    if (!readonly) actions.append(remove)
     row.append(icon, main, actions)
     return row
   })
@@ -364,11 +400,6 @@ el.refresh.addEventListener('click', () => {
     el.refresh.disabled = false
   })
 })
-
-if (!API_BASE) {
-  el.uploadBtn.disabled = true
-  setStatus('上传接口尚未配置，暂时只能浏览', 'warn')
-}
 
 syncButton()
 loadList()
