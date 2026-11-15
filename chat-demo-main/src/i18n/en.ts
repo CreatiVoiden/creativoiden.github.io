@@ -70,7 +70,7 @@ export const en = {
   readingLink: 'Reading',
   commonNetworkErrorToast: 'Network Error. Please check your network status.',
   replyInvalidApiKey:
-    'The API Key is invalid or has been deleted. Please replace it and try again.',
+    'The service credential is unavailable or out of credit. Please contact the site owner.',
   replyInsufficientBalance: 'Insufficient account balance. Please top up and try again.',
   replyRateLimited: 'Too many requests. Please try again later.',
   completionServerBusyToast: 'Server busy, please try again later.',
@@ -167,7 +167,7 @@ export const en = {
   voiceInputEmpty: 'No speech detected',
   voiceInputLimitReached: 'Maximum recording length reached',
   voiceInputRequiresHttps: 'Voice input requires HTTPS',
-  apiKeyInvalidRetry: 'Invalid API Key. Please change it and try again.',
+  apiKeyInvalidRetry: 'The service credential is unavailable. Please try again later.',
   insufficientBalance: 'Insufficient balance',
   rateLimited: 'Too many requests. Please try again later.',
   ttsPlay: 'Read aloud',
@@ -178,4 +178,9 @@ export const en = {
   latestReminderLanguage: 'English',
   settingsLocaleZhCN: 'Simplified Chinese',
   settingsLocaleEnUS: 'English',
+  lockTitle: 'Enter the access password',
+  lockDescription: 'This page is protected. Enter the access password to continue.',
+  lockPasswordPlaceholder: 'Access password',
+  lockEnter: 'Continue',
+  lockWrongPassword: 'Incorrect password. Please try again.',
 } satisfies Record<keyof typeof zh, string>

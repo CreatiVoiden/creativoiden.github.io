@@ -1,0 +1,98 @@
+.lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 24px;
+  background-color: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-label-primary);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 340px;
+  padding: 28px 24px 24px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 20px;
+  background-color: var(--dsw-alias-bg-layer-3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.description {
+  margin-top: 6px;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--ds-control-height-xl);
+  margin-top: 20px;
+  padding: 0 14px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 12px;
+  background-color: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-label-primary);
+  font: inherit;
+  font-size: var(--ds-font-size-m);
+  outline: none;
+  transition: border-color var(--ds-transition-duration) var(--ds-ease-in-out);
+
+  &::placeholder {
+    color: var(--dsw-alias-label-dimmed);
+  }
+
+  &:focus {
+    border-color: var(--dsw-alias-brand-primary);
+    box-shadow: 0 0 0 2px var(--dsw-alias-button-ghost-active-fill);
+  }
+}
+
+.error {
+  margin-top: 8px;
+  color: var(--dsw-alias-state-error-primary);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.submit {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--ds-control-height-xl);
+  margin-top: 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--dsw-alias-button-primary-fill);
+  color: var(--dsw-alias-label-primary-foreground);
+  font: inherit;
+  font-size: var(--ds-font-size-m);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--ds-transition-duration) var(--ds-ease-in-out);
+
+  &:hover:enabled {
+    background-color: var(--dsw-alias-button-primary-hover);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--dsw-alias-button-ghost-active-border);
+  }
+}
