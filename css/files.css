@@ -1,0 +1,261 @@
+/* 文件共享页 —— 上传卡片 + 文件列表 */
+
+.file-page .page-hero {
+  padding-bottom: 2.5rem;
+}
+
+.upload-card {
+  padding: 1.5rem;
+}
+
+.upload-form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--muted-strong, var(--muted));
+}
+
+.field input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 10px);
+  background: var(--bg-soft, rgba(255, 255, 255, 0.04));
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s var(--ease, ease), box-shadow 0.2s var(--ease, ease);
+}
+
+.field input:focus-visible {
+  outline: none;
+  border-color: var(--brand-400);
+  box-shadow: 0 0 0 3px rgba(120, 160, 255, 0.16);
+}
+
+.dropzone {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 1.9rem 1.2rem;
+  border: 1px dashed var(--line-strong, var(--line));
+  border-radius: var(--radius-md, 14px);
+  background: var(--bg-soft, rgba(255, 255, 255, 0.03));
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease, ease), background 0.2s var(--ease, ease),
+    transform 0.2s var(--ease, ease);
+}
+
+.dropzone:hover,
+.dropzone:focus-visible {
+  border-color: var(--brand-400);
+  background: var(--surface-strong, rgba(255, 255, 255, 0.06));
+  outline: none;
+}
+
+.dropzone.is-over {
+  border-color: var(--brand-300, var(--brand-400));
+  background: var(--surface-strong, rgba(255, 255, 255, 0.08));
+  transform: translateY(-1px);
+}
+
+.dropzone-icon {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-bottom: 0.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--brand-300, var(--brand-400));
+  font-size: 1.1rem;
+}
+
+.dropzone-title {
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.dropzone-hint {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.dropzone-hint.is-picked {
+  color: var(--brand-300, var(--brand-400));
+}
+
+.dropzone.has-file {
+  border-style: solid;
+  border-color: var(--brand-400);
+}
+
+.upload-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.upload-card .btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: saturate(0.5);
+}
+
+.upload-status {
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 1.2em;
+}
+
+.upload-status.is-ok {
+  color: #67d99b;
+}
+
+.upload-status.is-error {
+  color: #ff7b7b;
+}
+
+.upload-status.is-warn {
+  color: #ffc46b;
+}
+
+.progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progress > span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--grad, linear-gradient(90deg, #6f8cff, #9d6bff));
+  transition: width 0.15s linear;
+}
+
+/* 文件列表 ---------------------------------------------------------- */
+
+.file-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md, 14px);
+  background: var(--surface, rgba(255, 255, 255, 0.04));
+  transition: border-color 0.2s var(--ease, ease), transform 0.2s var(--ease, ease);
+}
+
+.file-row:hover {
+  border-color: var(--line-strong, var(--brand-400));
+  transform: translateY(-1px);
+}
+
+.file-ext {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: var(--radius-sm, 10px);
+  border: 1px solid var(--line);
+  background: var(--surface-strong, rgba(255, 255, 255, 0.06));
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--brand-300, var(--brand-400));
+}
+
+.file-main {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.file-name {
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-name:hover {
+  color: var(--brand-300, var(--brand-400));
+}
+
+.file-meta {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.file-actions {
+  display: flex;
+  flex: none;
+  gap: 0.4rem;
+}
+
+.btn-sm {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+.btn-danger {
+  color: #ff8b8b;
+  border-color: rgba(255, 120, 120, 0.35);
+}
+
+.btn-danger:hover {
+  color: #fff;
+  border-color: #ff7b7b;
+  background: rgba(255, 90, 90, 0.16);
+}
+
+.file-empty {
+  margin: 0;
+  padding: 1.4rem 1.2rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md, 14px);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .file-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .file-main {
+    flex: 1 1 calc(100% - 4rem);
+  }
+
+  .file-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

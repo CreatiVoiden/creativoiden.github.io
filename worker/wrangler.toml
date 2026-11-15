@@ -1,0 +1,17 @@
+name = "voiden-files"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+workers_dev = true
+
+[vars]
+REPO_OWNER = "CreatiVoiden"
+REPO_NAME = "creativoiden.github.io"
+BRANCH = "new"
+FILES_DIR = "files"
+PUBLIC_BASE = "https://voiden.cn/files"
+ALLOWED_ORIGINS = "https://voiden.cn,https://www.voiden.cn,http://127.0.0.1:8090,http://localhost:8090,http://127.0.0.1:8091,http://localhost:8091,http://127.0.0.1:8092,http://localhost:8092"
+MAX_FILE_MB = "25"
+
+# 两个机密用 wrangler secret put 写入，不要写在这个文件里：
+#   npx wrangler secret put GITHUB_TOKEN
+#   npx wrangler secret put UPLOAD_PASSWORD
