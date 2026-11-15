@@ -23,8 +23,14 @@
 }
 
 .appName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-width: 0;
   padding-left: 4px;
+}
+
+.brand {
   overflow: hidden;
   font-size: 20px;
   line-height: 22px;
@@ -32,6 +38,16 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--dsw-alias-brand-primary);
+}
+
+.version {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--dsw-alias-label-secondary);
 }
 
 .newChat {

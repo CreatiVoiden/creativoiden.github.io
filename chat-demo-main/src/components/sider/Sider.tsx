@@ -52,7 +52,10 @@ export const Sider = ({ mobile = false }: { mobile?: boolean }) => {
   return (
     <div className={clsx(styles.sider, mobile && styles.mobile)}>
       <div className={styles.top}>
-        <div className={styles.appName}>{t('appName')}</div>
+        <div className={styles.appName}>
+          <span className={styles.brand}>{t('appName')}</span>
+          <span className={styles.version}>{t('appSubtitle')}</span>
+        </div>
         <IconButton
           size="m"
           icon={<IconPanelLeftOutline16 />}
